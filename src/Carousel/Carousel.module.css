@@ -21,9 +21,10 @@
 }
 
 #page1 h1{
-font-size: 5vmax;
+font-size: 6vmax;
  font-weight: 800;
  position: relative;
+ opacity: 0;
  
 }
 /*#page1 h1::before{
@@ -40,10 +41,12 @@ font-size: 3vmax;
  font-weight: 800;
  margin-top: 10px;
  margin-bottom: 20px;
+ opacity: 0;
 }
 
 #page1 p{
+  font-size: 1.7vmax;
  font-weight: 600;
- width: 50%;
- 
+width: 60%;
+ opacity: 0;
 }

@@ -31,16 +31,16 @@ const register = async (Email, password) => {
   }
 }
 
-const creatUserDocument = async ({ $id, username, email }) => {
-  console.log("creatUserDocument: " + $id);
+const creatUserDocument = async ({  username, email }) => {
+  console.log("creatUserDocument: " + user.$id);
   console.log("creatUserDocument: " + username);
   try {
     return database.createDocument(
       // "64397a645b2d0000f2e0", // I commented out because this is my own database
       // "64397a6ec7fce839a55c",
-      "649f1605114fea3fd306",
-      "649f1621912f33b580b0",
-      $id,
+      "mydbid1",
+      "mycolid1",
+      user.$id,
       {
         username,
         email,
@@ -60,8 +60,8 @@ const updateUserDocument = async ({docname,color, side}) => {
     return database.updateDocument(
       // "64397a645b2d0000f2e0", // I commented out because this is my own database
       // "64397a6ec7fce839a55c",
-      "649f1605114fea3fd306",
-      "649f1621912f33b580b0",
+      "mydbid1",
+      "mycolid1",
       user.$id,
       {color, side}
     );
@@ -78,8 +78,8 @@ const updateUserDocument1 = async ({docname}) => {
     return database.updateDocument(
       // "64397a645b2d0000f2e0", // I commented out because this is my own database
       // "64397a6ec7fce839a55c",
-      "649f1605114fea3fd306",
-      "649f1621912f33b580b0",
+      "mydbid1",
+      "mycolid1",
       user.$id,
       {docname}
     );
@@ -96,8 +96,8 @@ const updateUserDocument2 = async ({numpages,numcopies,price,totalprice}) => {
     return database.updateDocument(
       // "64397a645b2d0000f2e0", // I commented out because this is my own database
       // "64397a6ec7fce839a55c",
-      "649f1605114fea3fd306",
-      "649f1621912f33b580b0",
+      "mydbid1",
+      "mycolid1",
       user.$id,
       {numpages,numcopies,price,totalprice}
     );

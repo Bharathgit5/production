@@ -1,11 +1,13 @@
-import React, {useContext,useState, useEffect } from 'react'
+import React, {useContext,useState, useEffect,useRef } from 'react'
 import { Client, Storage,ID,Account } from "appwrite";
 import CopiesContext from '../CopiesContext'
 import { updateUserDocument1} from "../appwritetest";
 import styles from "./Uploadcomp.module.css";
 import Alert from '../Alert';
+import {TweenMax , Power3} from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 const Uploadcomp = ({ passCount,props }) => {
-
+  let anime = useRef(null);
   const {setCopies} = useContext(CopiesContext)
   const [docname, setdocname] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,8 +25,8 @@ const Uploadcomp = ({ passCount,props }) => {
     // Initialize the Appwrite SDK
     const client = new Client()
     const account = new Account(client)
-    client.setEndpoint('https://api.printfc.in/v1') // Your API Endpoint
-    .setProject('649ee9b9cac1d0b0cae3');
+    client.setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
+    .setProject('654fd4448e0eacd58a02');
     // Check if the user is logged in
     const checkLoginStatus = async () => {
       try {
@@ -46,7 +48,7 @@ const Uploadcomp = ({ passCount,props }) => {
     .setProject('654fd4448e0eacd58a02');
     const storage = new Storage(client);
     const promise = storage.createFile(
-      '64a4cb23bd5fe24fd92b',
+      '65527ae4ef9793dcc4c7',
       ID.unique(),
       document.getElementById('upload-file').files[0]
     );
@@ -116,11 +118,32 @@ const Uploadcomp = ({ passCount,props }) => {
             showalert('Please Login/Signup to enable upload button','warning')
           }
         };
- 
+        useEffect(() => {
+          TweenMax.to(
+            anime,
+            .8,
+            {
+              opacity:1,
+              y:-20,
+              ease: Power3.easeOut,
+              delay:0.3,
+              color: 'red',
+              
+              scrollTrigger: {
+                trigger: 'nav',
+                scroller: 'body',
+                start: 'bottom -20%',
+                end: 'bottom -20%',
+                
+              },
+            }
+          )
+        
+      })
   return (
     <>
    <Alert alert={alert}/> 
-     <div className="card text-center" id={styles.card1} >
+     <div className="card text-center" id={styles.card1}  ref={el => {anime =el}}>
      
     <p className={styles["card-head"]}>
     <i className="bi bi-cloud-arrow-up" id={styles.icon}  ></i>  Upload Your File

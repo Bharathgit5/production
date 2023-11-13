@@ -18,6 +18,7 @@ body{
                        .card-body2{
                         text-align: center;
                         margin: auto;
+                        
 
                       }
                       .form-check-input{
@@ -88,7 +89,7 @@ body{
                           border-radius: 10px;
                          }
                          #card2,#card3{
-                     
+                     opacity: 0;
                            margin-top: 50px;
                            border-radius: 10px;
                            margin-left: 20px;

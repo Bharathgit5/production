@@ -1,8 +1,10 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect,useRef} from 'react';
 import { updateUserDocument2} from "./appwritetest";
-
+import {TweenMax , Power3} from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 const Showprice = (props) => {
   const [showTable, setShowTable] = useState(false);
+  let anime = useRef(null);
 let numpages=  props.count
 let numcopies=  props.copies
 let r1= props.selectedValue
@@ -23,11 +25,32 @@ const handleUpdateUser = async () => {
     // add any error handling here (e.g., display an error message to the user)
   }
 };
+useEffect(() => {
+  TweenMax.to(
+    anime,
+    .8,
+    {
+      opacity:1,
+      y:-20,
+      ease: Power3.easeOut,
+      delay:0.9,
+      color: 'red',
+      
+      scrollTrigger: {
+        trigger: 'nav',
+        scroller: 'body',
+        start: 'bottom -40%',
+        end: 'bottom -40%',
+       
+      },
+    }
+  )
 
+})   
 
   return (
     <>
-    <div className="card text-center " id='card3'>
+    <div className="card text-center " id='card3' ref={el => {anime =el}}>
     <b className="card-head" >Make Your Payment</b> 
    
  
