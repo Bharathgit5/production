@@ -1,0 +1,49 @@
+
+#main{
+  position: relative;
+  /*background-color: rgba(0,0,0,0.37);*/
+ /* background-color: #ff6b81;*/
+ background-color: black;
+  color: white;
+  font-family: 'montserrat';
+}
+#page1{
+ height: 100vh;
+ width: 100%;
+ position: relative;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+ text-align: center;
+ z-index: 10;
+
+}
+
+#page1 h1{
+font-size: 5vmax;
+ font-weight: 800;
+ position: relative;
+ 
+}
+/*#page1 h1::before{
+ content: "UPLOAD. SELECT. PAY.";
+ position: absolute;
+ color: black;
+ top: -2px;
+ left: -2px;
+ -webkit-text-stroke: 2px white;
+
+}*/
+#page1 h2{
+font-size: 3vmax;
+ font-weight: 800;
+ margin-top: 10px;
+ margin-bottom: 20px;
+}
+
+#page1 p{
+ font-weight: 600;
+ width: 50%;
+ 
+}
