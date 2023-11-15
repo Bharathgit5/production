@@ -26,7 +26,7 @@ const Uploadcomp = ({ passCount,props }) => {
     const client = new Client()
     const account = new Account(client)
     client.setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
-    .setProject('654fd4448e0eacd58a02');
+    .setProject('6554dca1a0a5a138e6c6');
     // Check if the user is logged in
     const checkLoginStatus = async () => {
       try {
@@ -45,10 +45,10 @@ const Uploadcomp = ({ passCount,props }) => {
     
     const client = new Client()
     client.setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
-    .setProject('654fd4448e0eacd58a02');
+    .setProject('6554dca1a0a5a138e6c6');
     const storage = new Storage(client);
     const promise = storage.createFile(
-      '65527ae4ef9793dcc4c7',
+      '6554dd6172242c32901a',
       ID.unique(),
       document.getElementById('upload-file').files[0]
     );
