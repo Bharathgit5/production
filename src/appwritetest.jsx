@@ -31,7 +31,7 @@ const register = async (Email, password) => {
   }
 }
 
-const creatUserDocument = async ({  username, email }) => {
+const creatUserDocument = async ({ slug, username, email }) => {
   console.log("creatUserDocument: " + user.$id);
   console.log("creatUserDocument: " + username);
   try {
@@ -40,7 +40,7 @@ const creatUserDocument = async ({  username, email }) => {
       // "64397a6ec7fce839a55c",
       "mydbid1",
       "mycolid1",
-      user.$id,
+      slug,
       {
         username,
         email,
@@ -51,18 +51,19 @@ const creatUserDocument = async ({  username, email }) => {
   }
 };
 
-const updateUserDocument = async ({docname,color, side}) => {
+const updateUserDocument = async (slug, {docname,color, side}) => {
   const account = new Account(client)
   const user = await account.get();
 
   try {
-    console.log("updateUserDocs: " + user.$id);
+      
+      console.log("updateUserDocs: " +ID.unique() );
     return database.updateDocument(
       // "64397a645b2d0000f2e0", // I commented out because this is my own database
       // "64397a6ec7fce839a55c",
       "mydbid1",
       "mycolid1",
-      user.$id,
+    slug  ,
       {color, side}
     );
   } catch (e) {
@@ -74,20 +75,20 @@ const updateUserDocument1 = async ({docname}) => {
   const user = await account.get();
 
   try {
-    console.log("updateUserDocs: " + user.$id);
+    console.log("updateUserDocs: " +ID.unique());
     return database.updateDocument(
       // "64397a645b2d0000f2e0", // I commented out because this is my own database
       // "64397a6ec7fce839a55c",
       "mydbid1",
       "mycolid1",
-      user.$id,
+      slug,
       {docname}
     );
   } catch (e) {
     console.error(e.message);
   }
 };
-const updateUserDocument2 = async ({numpages,numcopies,price,totalprice}) => {
+const updateUserDocument2 = async (slug, {numpages,numcopies,price,totalprice}) => {
   const account = new Account(client)
   const user = await account.get();
 
@@ -98,7 +99,7 @@ const updateUserDocument2 = async ({numpages,numcopies,price,totalprice}) => {
       // "64397a6ec7fce839a55c",
       "mydbid1",
       "mycolid1",
-      user.$id,
+      slug,
       {numpages,numcopies,price,totalprice}
     );
   } catch (e) {
