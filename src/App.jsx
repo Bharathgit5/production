@@ -14,20 +14,15 @@ function App() {
   return (
     <>
      
-     <BrowserRouter>
-   
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/" element = {<Home/>}/>
+<BrowserRouter>
+<Routes>
+<Route path="/login" element={<Login />} />
+<Route path="/signup" element={<Signup />} />
+<Route path="Home" element = {<Home/>}/>
 <Route path='/Termsandconditions' element={<Termsandconditions/>}/>
 <Route path='/PrivacyPolicy' element={<PrivacyPolicy/>}/>
 <Route path='/Refund' element={<Refund/>}/>
 <Route path='/Aboutus' element={<Aboutus/>}/>
-
-
-
-
         </Routes>
         </BrowserRouter>
    </>
