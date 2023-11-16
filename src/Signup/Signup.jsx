@@ -1,11 +1,13 @@
 import {  useState } from "react";
 import { register, creatUserDocument } from "../appwritetest";
-import {  useNavigate } from "react-router-dom";
+import {  useNavigate,Link } from "react-router-dom";
 import mylogo from '../images/mylogo.png';
 import Alert from "../Alert";
 import InputControls from "../InputControls/InputControls";
 import styles from "./Signup.module.css";
+import { login } from "../appwritetest";
 export default function SignUp(props) {
+ 
   const navigate = useNavigate();
   const[username,setusername]=useState();
   const [email, setemail] = useState();
@@ -134,6 +136,16 @@ export default function SignUp(props) {
     </button>
 </div>
     </form>
+    <h5 >Sign in to your account</h5>
+        <p>
+                   Already have any account?&nbsp;
+                    <Link
+                        to="/login"
+                        className="font-medium text-primary transition-all duration-200 hover:underline"
+                    >
+                        Login
+                    </Link>
+        </p>
     </div>
     </div>
     

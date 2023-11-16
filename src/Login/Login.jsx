@@ -1,11 +1,12 @@
 import {  useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate,Link } from "react-router-dom"
 import { login } from "../appwritetest";
 //import mylog from '../images/images/mylog.png';
 import Alert from '../Alert';
 import InputControls from "../InputControls/InputControls";
 import styles from "./Login.module.css";
 export default function LogIn() {
+  
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [showPassword, setShowPassword] = useState(false);
@@ -92,6 +93,16 @@ export default function LogIn() {
     </button>
     </div>
     </form>
+    <h5 >Create your account</h5>
+        <p>
+                    Don&apos;t have any account?&nbsp;
+                    <Link
+                        to="/signup"
+                        className="font-medium text-primary transition-all duration-200 hover:underline"
+                    >
+                        Sign Up
+                    </Link>
+        </p>
     </div>
     </div>
 
