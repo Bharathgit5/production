@@ -5,7 +5,6 @@ import { login } from "../appwritetest";
 import Alert from '../Alert';
 import InputControls from "../InputControls/InputControls";
 import styles from "./Login.module.css";
-import Home from "../Home";
 export default function LogIn() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -44,7 +43,7 @@ export default function LogIn() {
       
         setLoginSuccess(true);
         setTimeout(() => {
-          navigate('/Home');
+          navigate('/');
         }, 2000)
      
       })
