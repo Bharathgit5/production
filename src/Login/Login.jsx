@@ -43,7 +43,7 @@ export default function LogIn() {
       
         setLoginSuccess(true);
         setTimeout(() => {
-          navigate('/Home');
+          navigate('/');
         }, 2000)
      
       })
