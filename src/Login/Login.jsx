@@ -50,7 +50,7 @@ export default function LogIn() {
       })
       .catch(() => {
         showalert('Enter valid email or password','danger')
-       
+        window.location.reload();
         setLoginSuccess(false);
       });
   }
