@@ -2,7 +2,7 @@
 import { Account,AppwriteException, Client,Databases,ID} from "appwrite"
 
 const client = new Client()
-client.setEndpoint('https://api.printfc.in') // Your API Endpoint
+client.setEndpoint('https://api.printfc.in/v1') // Your API Endpoint
 .setProject('6554dca1a0a5a138e6c6');
 
 
