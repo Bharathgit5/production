@@ -16,13 +16,13 @@ function App() {
      
 <BrowserRouter>
 <Routes>
-<Route path="/login" element={<Login />} />
-<Route path="/signup" element={<Signup />} />
+<Route path="/Login" element={<Login />} />
+<Route path="/Signup" element={<Signup />} />
 <Route path="/" element = {<Home/>}/>
-<Route path='/termsandconditions' element={<Termsandconditions/>}/>
-<Route path='/privacyPolicy' element={<PrivacyPolicy/>}/>
-<Route path='/refund' element={<Refund/>}/>
-<Route path='/aboutus' element={<Aboutus/>}/>
+<Route path='/Termsandconditions' element={<Termsandconditions/>}/>
+<Route path='/PrivacyPolicy' element={<PrivacyPolicy/>}/>
+<Route path='/Refund' element={<Refund/>}/>
+<Route path='/Aboutus' element={<Aboutus/>}/>
         </Routes>
         </BrowserRouter>
    </>
