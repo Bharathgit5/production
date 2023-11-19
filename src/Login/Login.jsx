@@ -1,7 +1,7 @@
 import {  useState } from "react";
 import { useNavigate,Link } from "react-router-dom"
 import { login } from "../appwritetest";
-//import mylog from '../images/images/mylog.png';
+import mylogo from '../images/mylogo.png';
 import Alert from '../Alert';
 import InputControls from "../InputControls/InputControls";
 import styles from "./Login.module.css";
@@ -20,7 +20,7 @@ export default function LogIn() {
     })
     setTimeout(() => {
       setalert(null)
-    }, 2000);
+    }, 1000);
   }
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -45,12 +45,16 @@ export default function LogIn() {
         setLoginSuccess(true);
         setTimeout(() => {
           navigate('/');
-        }, 2000)
+        }, 1000)
      
       })
       .catch(() => {
         showalert('Enter valid email or password','danger')
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000)
+     
+       
         setLoginSuccess(false);
       });
   }
@@ -64,7 +68,7 @@ export default function LogIn() {
   
     <div className={styles.userbox}>
     <Alert alert={alert}/> 
-  
+    <img src={mylogo} alt="something" className={styles.logo} width={170} height={170}></img>
         <h3 id="signuplogin">Login</h3>
         <form className='form' onSubmit={handleSubmit}>
         <label htmlFor="email">
