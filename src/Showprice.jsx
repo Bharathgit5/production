@@ -1,9 +1,14 @@
 import React,{useState,useEffect,useRef} from 'react';
 import { updateUserDocument2} from "./appwritetest";
 import {TweenMax , Power3} from 'gsap';
+
 import ScrollTrigger from 'gsap/ScrollTrigger';
+
 const Showprice = (props) => {
   const [showTable, setShowTable] = useState(false);
+
+
+
   let anime = useRef(null);
 let numpages=  props.count
 let numcopies=  props.copies
@@ -47,7 +52,7 @@ useEffect(() => {
   )
 
 })   
-
+//upi://pay?pa=Q958755948@ybl&pn=PhonePeMerchant&mc=0000&mode=02&purpose=00
   return (
     <>
     <div className="card text-center " id='card3' ref={el => {anime =el}}>
@@ -79,7 +84,7 @@ useEffect(() => {
                </tr>
           </tbody>
         </table>
-       <button type="button" className="btn btn-dark" id='paybtn'><a href="upi://pay?pa=Q958755948@ybl&pn=PhonePeMerchant&mc=0000&mode=02&purpose=00">Pay Now</a></button>
+       <button type="button" className="btn btn-dark" id='paybtn'><a href="upi://pay?pa=paytmqr1et3tzvu8d@paytm&pn=Paytm">Pay Now</a></button>
          </>
       )}
 
