@@ -84,7 +84,7 @@ useEffect(() => {
                </tr>
           </tbody>
         </table>
-       <button type="button" className="btn btn-dark" id='paybtn'><a href="upi://pay?pa=paytmqr1et3tzvu8d@paytm&pn=Paytm">Pay Now</a></button>
+       <button type="button" className="btn btn-dark" id='paybtn'><a href="upi://pay?pa=paytmqr1et3tzvu8d@paytm&pn=Paytm&mc=0000&mode=02&purpose=00">Pay Now</a></button>
          </>
       )}
 
