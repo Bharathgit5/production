@@ -109,6 +109,8 @@ const Uploadcomp = ({ passCount,props }) => {
          }
          }
         }
+        
+
         const handleChange = (event) => {
           setCopies(event.target.value);
         }
@@ -152,11 +154,14 @@ const Uploadcomp = ({ passCount,props }) => {
  
     <div className='uploadmain'>
    <div className='upload'>
-   <button type='button'  className={styles["file-upload-label"]}  onClick={handleUploadClick} >
-      <input type="file" id='upload-file' className={styles["file-upload-input"]} onChangeCapture={pdffunc} onChange={Handlefile}  disabled={isLoggedIn === false}  />
-      <i className="bi bi-cloud-arrow-up" id={styles.icon}  ></i> <b>| Upload File</b>
-      </button>
-      <p  onChange={handleUpdateUser()}>{docname}</p>
+   <div   className={styles["main"]}  onClick={handleUploadClick} >
+    <div className={styles["uploadimage"]}>
+    <label className={styles['imglabel']} id={styles.icon} htmlFor='upload-file' ><b> Upload File</b></label> 
+    </div>
+      <input type="file" id='upload-file' className={styles['inputlabel']} onChangeCapture={pdffunc} onChange={Handlefile}  disabled={isLoggedIn === false} accept='*/*' multiple />
+     
+      </div>
+      <p className={styles['docnamedisp']}  onChange={handleUpdateUser()}>{docname}</p>
     </div>
  
       <div className='upload2'>

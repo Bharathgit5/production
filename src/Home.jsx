@@ -9,7 +9,6 @@ import Howitwork from './Howitwork';
 import Contact from './Contact';
 import CopiesContext from './CopiesContext';
 
-
 function Home(props) {
   const [count, setCount] = useState(0);
   const [copies, setCopies] = useState();
@@ -31,7 +30,7 @@ function Home(props) {
     </CopiesContext.Provider>
     <Howitwork/>
    <Contact/>
-  
+
    </>
    
   );
