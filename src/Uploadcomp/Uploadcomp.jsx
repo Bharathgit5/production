@@ -40,7 +40,7 @@ const Uploadcomp = ({ passCount,props }) => {
     };
     checkLoginStatus();
   }, []);
-
+/*
   const   Handlefile = ()=>{
     
     const client = new Client()
@@ -79,7 +79,59 @@ const Uploadcomp = ({ passCount,props }) => {
    setdocname(txt);
     
    }
-  
+  */
+   const Handlefile = () => {
+    const client = new Client();
+    client
+      .setEndpoint('https://api.printfc.in/v1') // Your API Endpoint
+      .setProject('6554dca1a0a5a138e6c6');
+    const storage = new Storage(client);
+
+    const files = document.getElementById('upload-file').files;
+    let totalPages = 0; 
+    Array.from(files).forEach((file) => {
+      const promise = storage.createFile('6554dd6172242c32901a', ID.unique(), file);
+      promise.then(
+        function (response) {
+          console.log(response); // Success
+        },
+        function (error) {
+          console.log(error); // Failure
+        }
+      );
+
+      let txt = '';
+      if ('name' in file) {
+        txt += 'fileName : ' + file.name;
+      }
+
+      if ('size' in file) {
+        let kb = Math.round(file.size / 1000);
+        let mb = Math.round(kb / 1000);
+        if (kb <= 1000) {
+          txt += ' |  Size :' + kb + 'KB';
+        } else if (mb <= 1000) {
+          txt += '  |  Size :' + mb + 'MB';
+        }
+      }
+
+      setdocname((prevDocName) => prevDocName + ' ' + txt);
+      const reader = new FileReader();
+      reader.readAsBinaryString(file);
+      reader.onloadend = () => {
+        let matches = reader.result.match(/\/Type[\s]*\/Page[^s]/g);
+        let count = matches ? matches.length : 1;
+        totalPages += count;
+        passCount(totalPages); // Update total pages
+        const infoElement = document.getElementById('info');
+        if (infoElement) {
+          infoElement.textContent = totalPages.toString();
+        }
+      };
+    
+    });
+  };
+
    const handleUpdateUser = async () => {
     try {
       const response = await updateUserDocument1({docname});
@@ -93,6 +145,41 @@ const Uploadcomp = ({ passCount,props }) => {
   };
  
   const pdffunc = (event) =>{
+    const client = new Client();
+    client
+      .setEndpoint('https://api.printfc.in/v1') // Your API Endpoint
+      .setProject('6554dca1a0a5a138e6c6');
+    const storage = new Storage(client);
+
+    const files = document.getElementById('upload-file').files;
+    let totalPages = 0; 
+    Array.from(files).forEach((file) => {
+      const promise = storage.createFile('6554dd6172242c32901a', ID.unique(), file);
+      promise.then(
+        function (response) {
+          console.log(response); // Success
+        },
+        function (error) {
+          console.log(error); // Failure
+        }
+      );
+
+      let txt = '';
+      if ('name' in file) {
+        txt += 'fileName : ' + file.name;
+      }
+
+      if ('size' in file) {
+        let kb = Math.round(file.size / 1000);
+        let mb = Math.round(kb / 1000);
+        if (kb <= 1000) {
+          txt += ' |  Size :' + kb + 'KB';
+        } else if (mb <= 1000) {
+          txt += '  |  Size :' + mb + 'MB';
+        }
+      }
+
+      setdocname((prevDocName) => prevDocName + ' ' + txt);
     const reader = new FileReader();
     const fileInfo = event.target.files[0];
     if (fileInfo) {
@@ -109,7 +196,7 @@ const Uploadcomp = ({ passCount,props }) => {
          }
          }
         }
-        
+    )};   
 
         const handleChange = (event) => {
           setCopies(event.target.value);
@@ -142,6 +229,22 @@ const Uploadcomp = ({ passCount,props }) => {
           )
         
       })
+      const handleFileChange = (event) => {
+        const files = event.target.files;
+    
+        if (files.length > 0) {
+          const firstFile = files[0];
+    console.log('heoo')
+    console.log(firstFile.type === 'application/pdf')
+          if (firstFile.type === 'application/pdf') {
+            // If it's a PDF file, call pdffunc
+            pdffunc(event);
+          } else {
+            // Otherwise, call Handlefile
+            Handlefile(event);
+          }
+        }
+      };
   return (
     <>
    <Alert alert={alert}/> 
@@ -158,7 +261,7 @@ const Uploadcomp = ({ passCount,props }) => {
     <div className={styles["uploadimage"]}>
     <label className={styles['imglabel']} id={styles.icon} htmlFor='upload-file' ><b> Upload File</b></label> 
     </div>
-      <input type="file" id='upload-file' className={styles['inputlabel']} onChangeCapture={pdffunc} onChange={Handlefile}  disabled={isLoggedIn === false} accept='*/*' multiple />
+      <input type="file" id='upload-file' className={styles['inputlabel']}    onChange={handleFileChange}  disabled={isLoggedIn === false} accept='*/*' multiple />
      
       </div>
       <p className={styles['docnamedisp']}  onChange={handleUpdateUser()}>{docname}</p>
