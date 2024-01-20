@@ -1,13 +1,12 @@
-import React, {useContext,useState, useEffect,useRef } from 'react'
+import React, {useContext,useState, useEffect } from 'react'
 import { Client, Storage,ID,Account } from "appwrite";
 import CopiesContext from '../CopiesContext'
 import { updateUserDocument1} from "../appwritetest";
 import styles from "./Uploadcomp.module.css";
 import Alert from '../Alert';
-import {TweenMax , Power3} from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+
 const Uploadcomp = ({ passCount,props }) => {
-  let anime = useRef(null);
+
   const {setCopies} = useContext(CopiesContext)
   const [docname, setdocname] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -207,28 +206,7 @@ const Uploadcomp = ({ passCount,props }) => {
             showalert('Please Login/Signup to enable upload button','warning')
           }
         };
-        useEffect(() => {
-          TweenMax.to(
-            anime,
-            .8,
-            {
-              opacity:1,
-              y:-20,
-              ease: Power3.easeOut,
-              delay:0.3,
-              color: 'red',
-              
-              scrollTrigger: {
-                trigger: 'nav',
-                scroller: 'body',
-                start: 'bottom -20%',
-                end: 'bottom -20%',
-                
-              },
-            }
-          )
-        
-      })
+     
       const handleFileChange = (event) => {
         const files = event.target.files;
     
@@ -248,7 +226,7 @@ const Uploadcomp = ({ passCount,props }) => {
   return (
     <>
    <Alert alert={alert}/> 
-     <div className="card text-center" id={styles.card1}  ref={el => {anime =el}}>
+     <div className="card text-center" id={styles.card1}  >
      
     <p className={styles["card-head"]}>
     <i className="bi bi-cloud-arrow-up" id={styles.icon}  ></i>  Upload Your File

@@ -1,10 +1,9 @@
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState } from "react";
 
 import { updateUserDocument } from "./appwritetest";
-import {TweenMax , Power3} from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+
 const Select = (props) => {
-  let anime = useRef(null);
+
 const[color,setcolor]=useState('');
 const[side,setside]=useState('');
 const handleChange = (event) => {
@@ -27,33 +26,11 @@ const handleUpdateUser = async (event) => {
     // add any error handling here (e.g., display an error message to the user)
   }
 };
-useEffect(() => {
-  TweenMax.to(
-    anime,
-    .8,
-    {
-      opacity:1,
-      y:-20,
-      ease: Power3.easeOut,
-      delay:0.6,
-      color: 'red',
-      
-      scrollTrigger: {
-        trigger: 'nav',
-        scroller: 'body',
-        start: 'bottom -30%',
-        end: 'bottom -30%',
-       
-      },
-    }
-  )
-
-})   
-
   
+ 
   return ( 
     <>
-      <div className="card text-center" id='card2' ref={el => {anime =el}}>
+      <div className="card text-center" id='card2' >
       
       <b className="card-head" >Select Your Print Type</b> 
         <div className="card-body2">

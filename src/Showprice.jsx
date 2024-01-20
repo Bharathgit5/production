@@ -1,11 +1,10 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { updateUserDocument2 } from "./appwritetest";
-import { TweenMax, Power3 } from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+
 
 const Showprice = (props) => {
-  let anime = useRef(null);
+
   let numpages = props.count;
   let numcopies = props.copies;
   let r1 = props.selectedValue;
@@ -29,25 +28,7 @@ const Showprice = (props) => {
 
   const [showContent, setShowContent] = useState(false);
 
-  useEffect(() => {
-    TweenMax.to(
-      anime,
-      .8,
-      {
-        opacity: 1,
-        y: -20,
-        ease: Power3.easeOut,
-        delay: 0.9,
-        color: 'red',
-        scrollTrigger: {
-          trigger: 'nav',
-          scroller: 'body',
-          start: 'bottom -40%',
-          end: 'bottom -40%',
-        },
-      }
-    );
-  }, []);
+ 
 
   useEffect(() => {
     const rzpPaymentForm = document.getElementById("rzp_payment_form");
@@ -63,7 +44,7 @@ const Showprice = (props) => {
 
   return (
     <>
-      <div className="card text-center " id='card3' ref={el => { anime = el }}>
+      <div className="card text-center " id='card3'>
         <b className="card-head" >Make Your Payment</b>
         <div className="card-body3">
           <button type="button" className="btn btn-dark" id='showpricebtn' onClick={() => setShowContent(true)}>
