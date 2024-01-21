@@ -17,7 +17,7 @@ function Home(props) {
   const [selectedValue2, setSelectedValue2] = useState("");
 
   const handleCount = (count) => {
-    setCount(count);
+    setCount(count);z
   }
 
   return (
