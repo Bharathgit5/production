@@ -67,8 +67,9 @@ export default function LogIn() {
    <div className={styles.loginbox}> 
   
     <div className={styles.userbox}>
-    <Alert alert={alert}/> 
+
     <img src={mylogo} alt="something" className={styles.logo} width={170} height={170}></img>
+    <Alert alert={alert}/> 
         <h3 id="signuplogin">Login</h3>
         <form className='form' onSubmit={handleSubmit}>
         <label htmlFor="email">
@@ -97,7 +98,7 @@ export default function LogIn() {
     </button>
     </div>
     </form>
-    <h5 >Create your account</h5>
+  
         <p>
                     Don&apos;t have any account?&nbsp;
                     <Link

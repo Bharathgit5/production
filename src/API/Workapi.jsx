@@ -17,7 +17,7 @@ export const Workapi =[
         id:3,
         logo:"bi bi-currency-rupee",
         title:"Make Your Payment",
-        info:"Now check your price by Clicking on 'Show price' button there your price will be displayed.After checking, click on 'PayNow' button and make your payment."       
+        info:"Now check your price by Clicking on 'Check price' button there your price will be displayed.After checking, click on 'PayNow' button and make your payment."       
 
     }
 ]

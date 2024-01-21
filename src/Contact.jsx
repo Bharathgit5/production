@@ -19,6 +19,7 @@ const Contact = () => {
 					<a href="https://www.linkedin.com/in/bharath-k-6436a11b2"><i className="bi bi-linkedin socialicons" target="_blank" rel="noopener noreferrer" aria-label="linkedin"></i> </a>
 					<a href="https://www.instagram.com/bharathk_ig/"><i className="bi bi-instagram socialicons" target="_blank" rel="noopener noreferrer" aria-label="insta" ></i> </a>
 					<a href="mailto: bharathjbiet10@gmail.com"> <i className="bi bi-envelope-at-fill socialicons" target="_blank"  rel="noopener noreferrer" aria-label="mail2" ></i> </a>
+        
         </div>
         </section>
       <div className='terms-and-conditions'>

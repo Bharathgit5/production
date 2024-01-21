@@ -82,9 +82,11 @@ export default function SignUp(props) {
   return (
     <div className={styles.loginbox}> 
     <div className={styles.userbox}>
-       <Alert alert={alert}/>
-       <img src={mylogo} alt="something" className={styles.logo} width={170} height={170}></img>
+      <div className="logobox">
+      <img src={mylogo} alt="something" className={styles.logo} width={170} height={170}></img>
+      </div>
     
+       <Alert alert={alert}  className='alert-box'/>
   <h2 id="signuplogin">SignUp</h2>
     <form className="form"  onSubmit={handleSubmit}>
     <label htmlFor="text">
@@ -136,13 +138,11 @@ export default function SignUp(props) {
     </button>
 </div>
     </form>
-    <h5 >Sign in to your account</h5>
-        <p>
-                   Already have any account?&nbsp;
+   
+        <p>Already have any account?&nbsp;
                     <Link
                         to="/login"
-                        className="font-medium text-primary transition-all duration-200 hover:underline"
-                    >
+                        className="font-medium text-primary transition-all duration-200 hover:underline">
                         Login
                     </Link>
         </p>

@@ -85,13 +85,13 @@ body{
                          .card-body2{
                            height: 150px;
                            background-color: white;
-                           color:black;
+                           color: #494747;
                            border-radius: 10px;
                          }
                          .card-body3{
                           height: 230px;
                           background-color: white;
-                          color: black;
+                          color: #494747;
                           border-radius: 10px;
                          }
                          #card2,#card3{
@@ -107,23 +107,24 @@ body{
                          .work-container {
                           width: 80vw;
                           padding: 1.5rem;
-                         
+                         font-size: 0.8rem;
                           margin-top: 5rem;
                           background-color: white;
-                          color: #000;
+                          color: #494747;
                           border-radius: 0.5rem;
                         }
                         
                         .work-container .main-heading {
-                          font-size: 3rem;
+                          font-size: 2rem;
                           font-weight: bolder;
                           word-spacing: 0.11rem;
                           padding-bottom: 20px;
                           
                         }
                         
+                        
                         .work-container .sub-heading {
-                          font-size: 2rem;
+                          font-size: 1.5rem;
                           font-weight: normal;
                         }
                         .fontawesome-style {
@@ -137,8 +138,9 @@ body{
                         .work-container-subdiv .main-hero-para {
                           width: 100%;
                         }
+                      
                         #footer,#contact-section{
-                          width: 70vw;
+                          width: 80vw;
                           padding: 1rem;
                           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
                           background-color: white;
@@ -191,4 +193,4 @@ body{
                      }
 
                
-                
+ 
