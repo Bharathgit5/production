@@ -9,6 +9,7 @@ import Refund from './Refund';
 import Aboutus from './Aboutus';
 
 
+
 function App() {
  
   return (
@@ -23,6 +24,7 @@ function App() {
 <Route path='/PrivacyPolicy' element={<PrivacyPolicy/>}/>
 <Route path='/Refund' element={<Refund/>}/>
 <Route path='/Aboutus' element={<Aboutus/>}/>
+
         </Routes>
         </BrowserRouter>
    </>
