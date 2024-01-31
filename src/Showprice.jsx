@@ -9,7 +9,7 @@ const Showprice = (props) => {
   let numcopies = props.copies;
   let r1 = props.selectedValue;
   let r2 = props.selectedValue2;
-  let price = (r1 === "black and white" && r2 === "front side only") ? 10 : (r1 === "black and white" && r2 === "both sides") ? 10 : (r1 === "color" && r2 === "front side only") ? 10 : (r1 === "color" && r2 === "both sides") ? 10 : 10;
+  let price = (r1 === "black and white" && r2 === "front side only") ? 10 : (r1 === "black and white" && r2 === "both sides") ? 5 : (r1 === "color" && r2 === "front side only") ? 10 : (r1 === "color" && r2 === "both sides") ? 20 : 10;
   let totalprice = numpages * numcopies * price;
 
   console.log(props.selectedValue);
@@ -66,10 +66,11 @@ const Showprice = (props) => {
                     <td>{numpages}</td>
                     <td>{numcopies}</td>
                     <td>{price}</td>
-                    <td>{totalprice}</td>
+                    <td className='bill'>{totalprice}</td>
                   </tr>
                 </tbody>
               </table>
+         
               <form id="rzp_payment_form"></form>
             </>
           )}

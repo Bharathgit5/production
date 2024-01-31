@@ -76,6 +76,10 @@ body{
                       color: white;
                       
                      }
+                     .bill{
+                      font-size: 1.5rem;
+                      color: rgb(5, 168, 5);
+                     }
                 
                      
                        /*........................end of showprice css .....................*/
@@ -89,7 +93,7 @@ body{
                            border-radius: 10px;
                          }
                          .card-body3{
-                          height: 230px;
+                          height: 250px;
                           background-color: white;
                           color: #494747;
                           border-radius: 10px;
