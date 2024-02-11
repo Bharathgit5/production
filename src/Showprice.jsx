@@ -10,6 +10,13 @@ const Showprice = (props) => {
   let r1 = props.selectedValue;
   let r2 = props.selectedValue2;
   let price = (r1 === "black and white" && r2 === "front side only") ? 10 : (r1 === "black and white" && r2 === "both sides") ? 5 : (r1 === "color" && r2 === "front side only") ? 10 : (r1 === "color" && r2 === "both sides") ? 20 : 10;
+
+  // Ensure numpages and numcopies are numbers and not NaN
+  numpages = isNaN(numpages) ? 0 : parseInt(numpages);
+  numcopies = isNaN(numcopies) ? 0 : parseInt(numcopies);
+  // Ensure price is a number and not NaN
+  price = isNaN(price) ? 0 : parseInt(price);
+
   let totalprice = numpages * numcopies * price;
 
   console.log(props.selectedValue);
@@ -47,7 +54,7 @@ const Showprice = (props) => {
       <div className="card text-center " id='card3'>
         <b className="card-head" >Make Your Payment</b>
         <div className="card-body3">
-          <button type="button" className="btn btn-dark" id='showpricebtn' onClick={() => setShowContent(true)}>
+   <button type="button" className="btn btn-dark" id='showpricebtn' onClick={() => setShowContent(true)}>
             Check Price ₹
           </button>
           {showContent && (
@@ -70,8 +77,9 @@ const Showprice = (props) => {
                   </tr>
                 </tbody>
               </table>
-         
+             
               <form id="rzp_payment_form"></form>
+     
             </>
           )}
         </div>
