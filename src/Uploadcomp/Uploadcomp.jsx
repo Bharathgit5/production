@@ -93,11 +93,16 @@ const Uploadcomp = ({ passCount,props }) => {
       promise.then(
         function (response) {
           console.log(response); // Success
+          // Show success alert here
+          showalert('File uploaded successfully', 'success');
         },
         function (error) {
           console.log(error); // Failure
+          // Show error alert here if needed
+          showalert('File upload failed', 'error');
         }
       );
+
 
       let txt = '';
       if ('name' in file) {
@@ -157,11 +162,16 @@ const Uploadcomp = ({ passCount,props }) => {
       promise.then(
         function (response) {
           console.log(response); // Success
+          // Show success alert here
+          showalert('File uploaded successfully', 'success');
         },
         function (error) {
           console.log(error); // Failure
+          // Show error alert here if needed
+          showalert('File upload failed', 'error');
         }
       );
+  
 
       let txt = '';
       if ('name' in file) {
@@ -254,7 +264,7 @@ const Uploadcomp = ({ passCount,props }) => {
      </div>
    
      <div className='noofcopies'>
-     <b className={styles.numcopies}>Number of copies:</b><input  className={styles.nocopiesbox} onChange={handleChange} ></input>
+     <b className={styles.numcopies}>Number of copies:</b><input  className={styles.nocopiesbox} onChange={handleChange}></input>
      </div> 
     
   </div>
