@@ -18,7 +18,7 @@ const Uploadcomp = ({ passCount,props }) => {
     })
     setInterval(() => {
       setalert(null)
-    }, 15000);
+    }, 2000);
   } 
   useEffect(() => {
     // Initialize the Appwrite SDK
@@ -99,7 +99,7 @@ const Uploadcomp = ({ passCount,props }) => {
         function (error) {
           console.log(error); // Failure
           // Show error alert here if needed
-          showalert('File upload failed', 'error');
+          showalert('File upload failed', 'danger');
         }
       );
 

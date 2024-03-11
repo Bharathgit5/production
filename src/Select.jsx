@@ -13,7 +13,7 @@ const Select = (props) => {
     })
     setInterval(() => {
       setAlert(null)
-    }, 1000);
+    }, 2000);
   } 
   useEffect(() => {
     if (color !== '' && side !== '') {
@@ -31,7 +31,7 @@ const Select = (props) => {
     } catch (error) {
       console.log(error);
       // Add error handling here if needed
-      showAlert('Please select again', 'error');
+      showAlert('Please select again', 'warning');
     }
   };
 
