@@ -2,12 +2,17 @@
 import { Account,AppwriteException, Client,Databases,ID} from "appwrite"
 
 const client = new Client()
+
 client.setEndpoint('https://fra.cloud.appwrite.io/v1') // Your API Endpoint
+
+client.setEndpoint('https://fra.cloud.appwrite.io/v1') 
+
 .setProject('6554dca1a0a5a138e6c6');
 
 
 const storage = Client.storage;
 const database = new Databases(client);
+
 
 
 
@@ -30,6 +35,8 @@ const login = async (Email, password) => {
     }
   }
 };
+
+
 
 
 
@@ -62,24 +69,7 @@ const creatUserDocument = async ({ username, email }) => {
 };
 
 
-// const creatUserDocument = async ({ $id, username, email }) => {
-//   console.log("creatUserDocument: " + $id);
-//   console.log("creatUserDocument: " + username);
-//   try {
-//     return database.createDocument(
-     
-//       "6554dcedaf44163b4636",
-//       "6554dcfe097364a862b5",
-//       $id,
-//       {
-//         username,
-//         email,
-//       }
-//     );
-//   } catch (e) {
-//     console.error(e.message);
-//   }
-// };
+
 
 const updateUserDocument = async ({color, side}) => {
   const account = new Account(client)
