@@ -2,7 +2,7 @@
 import { Account,AppwriteException, Client,Databases,ID} from "appwrite"
 
 const client = new Client()
-client.setEndpoint('https://cloud.appwrite.io/v1') 
+client.setEndpoint('https://fra.cloud.appwrite.io/v1') 
 .setProject('6554dca1a0a5a138e6c6');
 
 
