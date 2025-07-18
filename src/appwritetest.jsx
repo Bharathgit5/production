@@ -2,7 +2,7 @@
 import { Account,AppwriteException, Client,Databases,ID} from "appwrite"
 
 const client = new Client()
-client.setEndpoint('https://api.printfc.in/v1') // Your API Endpoint
+client.setEndpoint('https://fra.cloud.appwrite.io/v1') // Your API Endpoint
 .setProject('6554dca1a0a5a138e6c6');
 
 
@@ -10,15 +10,28 @@ const storage = Client.storage;
 const database = new Databases(client);
 
 
+
 const login = async (Email, password) => {
+  const account = new Account(client);
+
   try {
-    const account = new Account(client)
-    return account.createEmailSession(Email, password)
-  } catch (error) {
-    const appwriteError = AppwriteException;
-    throw new Error(appwriteError.message)
+    const currentSession = await account.getSession('current');
+    console.log("Already logged in:", currentSession);
+    return currentSession; // Already logged in
+  } catch (err) {
+    // No session, so proceed with login
+    try {
+      const session = await account.createEmailSession(Email, password);
+      console.log("Logged in successfully:", session);
+      return session;
+    } catch (error) {
+      console.error("Login failed:", error.message);
+      throw new Error(error.message);
+    }
   }
-}
+};
+
+
 
 
 const register = async (Email, password) => {
@@ -31,35 +44,52 @@ const register = async (Email, password) => {
   }
 }
 
-const creatUserDocument = async ({ $id, username, email }) => {
-  console.log("creatUserDocument: " + $id);
-  console.log("creatUserDocument: " + username);
+const creatUserDocument = async ({ username, email }) => {
+  const account = new Account(client);
+  const user = await account.get(); // 👈 get currently logged in user
+
   try {
+    console.log("Creating document for user ID:", user.$id);
     return database.createDocument(
-      // "64397a645b2d0000f2e0", // I commented out because this is my own database
-      // "64397a6ec7fce839a55c",
       "6554dcedaf44163b4636",
       "6554dcfe097364a862b5",
-      $id,
-      {
-        username,
-        email,
-      }
+      user.$id, // 👈 use user.$id as document ID
+      { username, email }
     );
   } catch (e) {
-    console.error(e.message);
+    console.error("Error creating user doc:", e.message);
   }
 };
+
+
+// const creatUserDocument = async ({ $id, username, email }) => {
+//   console.log("creatUserDocument: " + $id);
+//   console.log("creatUserDocument: " + username);
+//   try {
+//     return database.createDocument(
+     
+//       "6554dcedaf44163b4636",
+//       "6554dcfe097364a862b5",
+//       $id,
+//       {
+//         username,
+//         email,
+//       }
+//     );
+//   } catch (e) {
+//     console.error(e.message);
+//   }
+// };
 
 const updateUserDocument = async ({color, side}) => {
   const account = new Account(client)
   const user = await account.get();
+  console.log("Logged-in User ID:", user.$id);
 
   try {
     console.log("updateUserDocs: " + user.$id);
     return database.updateDocument(
-      // "64397a645b2d0000f2e0", // I commented out because this is my own database
-      // "64397a6ec7fce839a55c",
+     
       "6554dcedaf44163b4636",
       "6554dcfe097364a862b5",
       user.$id,
@@ -76,8 +106,7 @@ const updateUserDocument1 = async ({docname}) => {
   try {
     console.log("updateUserDocs: " + user.$id);
     return database.updateDocument(
-      // "64397a645b2d0000f2e0", // I commented out because this is my own database
-      // "64397a6ec7fce839a55c",
+     
       "6554dcedaf44163b4636",
       "6554dcfe097364a862b5",
       user.$id,
@@ -94,8 +123,7 @@ const updateUserDocument2 = async ({numpages,numcopies,price,totalprice}) => {
   try {
     console.log("updateUserDocs: " + user.$id);
     return database.updateDocument(
-      // "64397a645b2d0000f2e0", // I commented out because this is my own database
-      // "64397a6ec7fce839a55c",
+   
       "6554dcedaf44163b4636",
       "6554dcfe097364a862b5",
       user.$id,

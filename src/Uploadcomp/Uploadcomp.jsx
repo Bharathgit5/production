@@ -24,7 +24,7 @@ const Uploadcomp = ({ passCount,props }) => {
     // Initialize the Appwrite SDK
     const client = new Client()
     const account = new Account(client)
-    client.setEndpoint('https://api.printfc.in/v1') // Your API Endpoint
+    client.setEndpoint('https://fra.cloud.appwrite.io/v1') // Your API Endpoint
     .setProject('6554dca1a0a5a138e6c6');
     // Check if the user is logged in
     const checkLoginStatus = async () => {
@@ -82,7 +82,7 @@ const Uploadcomp = ({ passCount,props }) => {
    const Handlefile = () => {
     const client = new Client();
     client
-      .setEndpoint('https://api.printfc.in/v1') // Your API Endpoint
+      .setEndpoint('https://fra.cloud.appwrite.io/v1') // Your API Endpoint
       .setProject('6554dca1a0a5a138e6c6');
     const storage = new Storage(client);
 
@@ -151,7 +151,7 @@ const Uploadcomp = ({ passCount,props }) => {
   const pdffunc = (event) =>{
     const client = new Client();
     client
-      .setEndpoint('https://api.printfc.in/v1') // Your API Endpoint
+      .setEndpoint('https://fra.cloud.appwrite.io/v1') // Your API Endpoint
       .setProject('6554dca1a0a5a138e6c6');
     const storage = new Storage(client);
 
