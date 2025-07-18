@@ -10,15 +10,19 @@ const storage = Client.storage;
 const database = new Databases(client);
 
 
-const login = async (Email, password) => {
+export const login = async (email, password) => {
   try {
-    const account = new Account(client)
-    return account.createEmailSession(Email, password)
-  } catch (error) {
-    const appwriteError = AppwriteException;
-    throw new Error(appwriteError.message)
+    const session = await account.createEmailSession(email, password);
+    console.log("✅ Login success:", session);
+    return session;
+  } catch (err) {
+    console.error("❌ Login failed");
+    console.error("Error Code:", err.code);
+    console.error("Message:", err.message);
+    console.error("Type:", err.type);
+    throw err;
   }
-}
+};
 
 
 const register = async (Email, password) => {
